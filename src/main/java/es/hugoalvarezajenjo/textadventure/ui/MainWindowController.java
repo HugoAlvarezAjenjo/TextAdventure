@@ -1,6 +1,8 @@
 package es.hugoalvarezajenjo.textadventure.ui;
 
+import es.hugoalvarezajenjo.textadventure.logic.PlayerManager;
 import es.hugoalvarezajenjo.textadventure.ui.choicescreen.ChoiceScreen;
+import es.hugoalvarezajenjo.textadventure.ui.choicescreen.ChoiceScreenController;
 import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartButtonListerner;
 import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartScreen;
 
@@ -20,8 +22,10 @@ public class MainWindowController {
     }
 
     public void showChoiceScreen() {
+        final ChoiceScreen screen = new ChoiceScreen();
+        final ChoiceScreenController controller = new ChoiceScreenController(screen, new PlayerManager());
         this.mainWindow.getContentPane().removeAll();
-        this.mainWindow.getContentPane().add(new ChoiceScreen());
+        this.mainWindow.getContentPane().add(screen);
         this.mainWindow.revalidate();
         this.mainWindow.repaint();
     }
