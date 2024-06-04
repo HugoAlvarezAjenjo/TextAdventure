@@ -1,0 +1,63 @@
+@startuml TextAdventure Class Diagram
+package es.hugoalvarezajenjo.textadventure {
+    package model {
+        class Player {
+            - health: int
+            - weapon: Weapon
+            + new(health: int, weapon: Weapon): Player
+        }
+
+        abstract Weapon{
+            - name: String
+            - damage: int
+            + new(name: String, damage: int): Weapon
+        }
+
+        class Knife {
+            + new(): Knife
+        }
+         class LongSword {
+            + new(): LongSword
+        }
+    }
+
+    package logic {
+
+    }
+
+    package ui {
+        class MainWindow <<UI>>
+        class MainWindowController <<UIController>>
+        abstract WindowScreen <<UI>>
+
+        package startscreen {
+            class StartScreen <<UI>>
+            class StartButtonListerner <<ViewListerner>>
+        }
+        class ChoiceScreen <<UI>>
+
+    }
+
+    class Main {
+        + {static} Main()
+    }
+}
+
+WindowScreen <|-- StartScreen
+WindowScreen <|-- ChoiceScreen
+
+Weapon <|-- Knife
+Weapon <|-- LongSword
+
+Main --> MainWindowController
+
+MainWindowController -> MainWindow
+
+MainWindow *--> WindowScreen
+
+StartButtonListerner -> StartScreen
+MainWindowController <-- StartButtonListerner
+
+Player o--> Weapon
+
+@enduml
