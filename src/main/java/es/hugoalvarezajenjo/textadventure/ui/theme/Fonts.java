@@ -1,4 +1,4 @@
-package es.hugoalvarezajenjo.textadventure.ui.utils;
+package es.hugoalvarezajenjo.textadventure.ui.theme;
 
 import java.awt.*;
 

@@ -1,6 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.ui.startscreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.utils.Fonts;
+import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,7 @@
 package es.hugoalvarezajenjo.textadventure.ui;
 
-import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartButtonPanel;
-import es.hugoalvarezajenjo.textadventure.ui.startscreen.TitleNamePanel;
+import es.hugoalvarezajenjo.textadventure.ui.choicescreen.ChoiceScreen;
+import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +12,10 @@ public class MainWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.BLACK);
         this.setLayout(null);
+        this.setResizable(false);
 
-        this.add(new TitleNamePanel());
-        this.add(new StartButtonPanel());
+//        this.add(new StartScreen());
+        this.add(new ChoiceScreen());
 
         this.setVisible(true);
     }
