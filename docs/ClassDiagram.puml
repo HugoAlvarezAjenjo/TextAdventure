@@ -22,7 +22,12 @@ package es.hugoalvarezajenjo.textadventure {
     }
 
     package logic {
-
+        class PlayerManager <<controller>>{
+            - player: Player
+            + new(): PlayerManager
+            + getPlayerHealth(): int
+            + getPlayerWeaponName(): String
+        }
     }
 
     package ui {
@@ -34,12 +39,23 @@ package es.hugoalvarezajenjo.textadventure {
             class StartScreen <<UI>>
             class StartButtonListerner <<ViewListerner>>
         }
-        class ChoiceScreen <<UI>>
+
+        package choicescreen {
+            class ChoiceScreen <<UI>> {
+                + setHp(hp: int)
+                + setWeaponName(weaponName: WeaponName)
+            }
+            class ChoiceScreenController <<UIController>> {
+                - choicescreen: ChoiceScreen
+                + updateHp(hp: int)
+                + updateWeaponName(weaponName: WeaponName)
+            }
+        }
 
     }
 
-    class Main {
-        + {static} Main()
+    class Main <<system>>{
+        + {static} main(args: String[])
     }
 }
 
@@ -55,8 +71,13 @@ MainWindowController -> MainWindow
 
 MainWindow *--> WindowScreen
 
-StartButtonListerner -> StartScreen
+StartButtonListerner <- StartScreen
 MainWindowController <-- StartButtonListerner
+
+ChoiceScreen <- ChoiceScreenController
+ChoiceScreenController --> PlayerManager
+
+PlayerManager --> Player
 
 Player o--> Weapon
 
