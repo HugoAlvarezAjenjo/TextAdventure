@@ -13,10 +13,5 @@ public class MainWindow extends JFrame {
         this.getContentPane().setBackground(Color.BLACK);
         this.setLayout(null);
         this.setResizable(false);
-
-//        this.add(new StartScreen());
-        this.add(new ChoiceScreen());
-
-        this.setVisible(true);
     }
 }

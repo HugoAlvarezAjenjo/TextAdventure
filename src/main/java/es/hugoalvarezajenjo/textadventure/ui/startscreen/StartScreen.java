@@ -1,15 +1,12 @@
 package es.hugoalvarezajenjo.textadventure.ui.startscreen;
 
-import javax.swing.*;
-import java.awt.*;
+import es.hugoalvarezajenjo.textadventure.ui.WindowScreen;
 
-public class StartScreen extends JPanel {
-    public StartScreen() {
-        this.setSize(800,600);
-        this.setBackground(Color.BLACK);
-        this.setLayout(null);
+import java.awt.event.ActionListener;
 
+public class StartScreen extends WindowScreen {
+    public StartScreen(final ActionListener onStartButtonClick) {
         this.add(new TitleNamePanel());
-        this.add(new StartButtonPanel());
+        this.add(new StartButtonPanel(onStartButtonClick));
     }
 }
