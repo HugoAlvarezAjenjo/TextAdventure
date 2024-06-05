@@ -37,7 +37,7 @@ package es.hugoalvarezajenjo.textadventure {
 
         package startscreen {
             class StartScreen <<UI>>
-            class StartButtonListerner <<ViewListerner>>
+            class StartButtonListener <<ViewListener>>
         }
 
         package choicescreen {
@@ -50,6 +50,7 @@ package es.hugoalvarezajenjo.textadventure {
                 + updateHp(hp: int)
                 + updateWeaponName(weaponName: WeaponName)
             }
+            class ChoiceButtonListener <<ViewListener>>
         }
 
     }
@@ -71,11 +72,13 @@ MainWindowController -> MainWindow
 
 MainWindow *--> WindowScreen
 
-StartButtonListerner <- StartScreen
-MainWindowController <-- StartButtonListerner
+StartButtonListener <- StartScreen
+MainWindowController <-- StartButtonListener
 
 ChoiceScreen <- ChoiceScreenController
 ChoiceScreenController --> PlayerManager
+
+ChoiceScreen --> ChoiceButtonListener
 
 PlayerManager --> Player
 
