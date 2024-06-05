@@ -16,11 +16,6 @@ public class ChoiceButtonListener implements ActionListener {
     @Override
     public void actionPerformed(final ActionEvent e) {
         System.out.println(e.getActionCommand());
-        switch (e.getActionCommand()) {
-            case "Choice1" -> this.controller.selectOption1();
-            case "Choice2" -> this.controller.selectOption2();
-            case "Choice3" -> this.controller.selectOption3();
-            case "Choice4" -> this.controller.selectOption4();
-        }
+        this.controller.notifyChoice(e.getActionCommand());
     }
 }

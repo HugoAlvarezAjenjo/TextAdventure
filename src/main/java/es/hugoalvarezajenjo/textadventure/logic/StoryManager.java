@@ -16,4 +16,16 @@ public class StoryManager {
     public String[] getStoryChoices() {
         return this.story.getChoices();
     }
+
+    public boolean makeChoice(final String choice) {
+        if (choice.isEmpty()) {
+            return false;
+        }
+        final Story nextStory = this.story.makeChoice(choice);
+        if (nextStory != null) {
+            this.story = nextStory;
+            return true;
+        }
+        return false;
+    }
 }

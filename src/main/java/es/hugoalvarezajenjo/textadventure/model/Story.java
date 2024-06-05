@@ -27,4 +27,8 @@ public class Story {
     public String getName() {
         return this.storyName;
     }
+
+    public Story makeChoice(final String choice) {
+        return null;
+    }
 }

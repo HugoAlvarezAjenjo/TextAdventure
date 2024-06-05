@@ -40,19 +40,11 @@ public class ChoiceScreenController {
         this.updateStoryChoices();
     }
 
-    public void selectOption1() {
-
+    public void notifyChoice(final String choice) {
+        final boolean needsUpdate = this.storyManager.makeChoice(choice);
+        if (needsUpdate) {
+            this.updateStory();
+        }
     }
 
-    public void selectOption2() {
-
-    }
-
-    public void selectOption3() {
-
-    }
-
-    public void selectOption4() {
-
-    }
 }
