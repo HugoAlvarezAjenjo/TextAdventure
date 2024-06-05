@@ -29,4 +29,11 @@ public class ChoiceButtonPanel extends JPanel {
         this.add(choice3);
         this.add(choice4);
     }
+
+    public void setStoryChoices(final String[] storyChoices) {
+        this.choice1.setText(storyChoices[0]);
+        this.choice2.setText(storyChoices[1]);
+        this.choice3.setText(storyChoices[2]);
+        this.choice4.setText(storyChoices[3]);
+    }
 }

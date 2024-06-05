@@ -28,4 +28,8 @@ public class MainTextPanel extends JPanel {
         textArea.setEditable(false);
         return textArea;
     }
+
+    public void setText(final String storyTitle) {
+        this.textArea.setText(storyTitle);
+    }
 }

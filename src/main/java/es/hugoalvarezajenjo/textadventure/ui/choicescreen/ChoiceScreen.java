@@ -25,4 +25,12 @@ public class ChoiceScreen extends WindowScreen {
     public void setWeaponName(final String weaponName) {
         this.playerInfoPanel.setWeaponName(weaponName);
     }
+
+    public void setMainText(final String storyTitle) {
+        this.mainTextPanel.setText(storyTitle);
+    }
+
+    public void setStoryChoices(final String[] storyChoices) {
+        this.choiceButtonPanel.setStoryChoices(storyChoices);
+    }
 }
