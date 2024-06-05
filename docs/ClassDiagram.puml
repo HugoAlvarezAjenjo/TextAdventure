@@ -11,6 +11,8 @@ package es.hugoalvarezajenjo.textadventure {
             - name: String
             - damage: int
             + new(name: String, damage: int): Weapon
+            + getName(): String
+            + getDamage(): int
         }
 
         class Knife {
@@ -34,7 +36,7 @@ package es.hugoalvarezajenjo.textadventure {
         class PlayerManager <<controller>>{
             - player: Player
             + new(): PlayerManager
-            + getPlayerHealth(): int
+            + getPlayerHp(): int
             + getPlayerWeaponName(): String
         }
 
@@ -43,17 +45,40 @@ package es.hugoalvarezajenjo.textadventure {
             + new(): StoryManager
             + getStoryTitle(): String
             + getStoryChoices(): String[]
+            + makeChoice(choice: String): boolean
         }
     }
 
     package ui {
-        class MainWindow <<UI>>
-        class MainWindowController <<UIController>>
-        abstract WindowScreen <<UI>>
+        class MainWindow <<UI>> {
+            + new(): MainWindow
+        }
+        class MainWindowController <<UIController>> {
+            - mainWindow: MainWindow
+            + new(mainWindow: MainWindow): MainWindowController
+            + showStartScreen()
+            + showChoiceScreen()
+        }
+        abstract WindowScreen <<UI>> {
+            + new(): WindowScreen
+        }
+
+        package theme {
+            class Fonts {
+                + {static} TITLE_FONT: Font
+                + {static} NORMAL_FONT: Font
+            }
+        }
 
         package startscreen {
-            class StartScreen <<UI>>
-            class StartButtonListener <<ViewListener>>
+            class StartScreen <<UI>> {
+                +new(onStartButtonClick: ActionListener)
+            }
+            class StartButtonListener <<ViewListener>> {
+                - mainWindowController: MainWindowController
+                + new(mainWindowController: MainWindowController): StartButtonListener
+                + actionPerformed(event: ActionEvent)
+            }
         }
 
         package choicescreen {
@@ -65,13 +90,21 @@ package es.hugoalvarezajenjo.textadventure {
             }
             class ChoiceScreenController <<UIController>> {
                 - choicescreen: ChoiceScreen
+                - playerManager: PlayerManager
+                - storyManager: StoryManager
+                + new(choiceScreen: ChoiceScreen, playerManager: PlayerManager, storyManager: StoryManager): ChoiceScreenController
                 - updateHp(hp: int)
                 - updateWeaponName(weaponName: WeaponName)
                 - updateStoryTitle(title: String)
                 - updateStoryChoices(choice: String[])
                 - updateStory()
+                + notifyChoice(choice: String)
             }
-            class ChoiceButtonListener <<ViewListener>>
+            class ChoiceButtonListener <<ViewListener>> {
+                - controller: ChoiceScreenController
+                + setController(controller: ChoiceScreenController)
+                + actionPerformed(event: ActionEvent)
+            }
         }
 
     }
