@@ -10,9 +10,13 @@ import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartScreen;
 
 public class MainWindowController {
     private final MainWindow mainWindow;
+    private final StoryManager storyManager;
+    private final PlayerManager playerManager;
 
-    public MainWindowController(final MainWindow mainWindow) {
+    public MainWindowController(final MainWindow mainWindow, final PlayerManager playerManager, final StoryManager storyManager) {
         this.mainWindow = mainWindow;
+        this.playerManager = playerManager;
+        this.storyManager = storyManager;
     }
 
     public void showStartScreen() {
@@ -26,7 +30,7 @@ public class MainWindowController {
     public void showChoiceScreen() {
         final ChoiceButtonListener listener = new ChoiceButtonListener();
         final ChoiceScreen screen = new ChoiceScreen(listener);
-        final ChoiceScreenController controller = new ChoiceScreenController(screen, new PlayerManager(), new StoryManager());
+        final ChoiceScreenController controller = new ChoiceScreenController(screen, this.playerManager, this.storyManager);
         listener.setController(controller);
         this.mainWindow.getContentPane().removeAll();
         this.mainWindow.getContentPane().add(screen);
