@@ -68,11 +68,14 @@ package es.hugoalvarezajenjo.textadventure {
                 + {static} TITLE_FONT: Font
                 + {static} NORMAL_FONT: Font
             }
+            class Dimensions {
+                + {static} DEFAULT_WINDOW_SIZE: Dimension
+            }
         }
 
         package startscreen {
             class StartScreen <<UI>> {
-                +new(onStartButtonClick: ActionListener)
+                +new(onStartButtonClick: ActionListener): StartScreen
             }
             class StartButtonListener <<ViewListener>> {
                 - mainWindowController: MainWindowController
@@ -83,6 +86,7 @@ package es.hugoalvarezajenjo.textadventure {
 
         package choicescreen {
             class ChoiceScreen <<UI>> {
+                + new(choiceButtonListener: ChoiceButtonListener): ChoiceScreen
                 + setHp(hp: int)
                 + setWeaponName(weaponName: WeaponName)
                 + setStoryTitle(title: String)
