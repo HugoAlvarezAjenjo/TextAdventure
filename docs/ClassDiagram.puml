@@ -16,8 +16,17 @@ package es.hugoalvarezajenjo.textadventure {
         class Knife {
             + new(): Knife
         }
-         class LongSword {
+        class LongSword {
             + new(): LongSword
+        }
+
+        class Story {
+            - title: String
+            - choice1: String
+            - choice2: String
+            - choice3: String
+            - choice4: String
+            + new(title: String, choice1: String, choice2: String, choice3: String, choice4: String): Story
         }
     }
 
@@ -27,6 +36,13 @@ package es.hugoalvarezajenjo.textadventure {
             + new(): PlayerManager
             + getPlayerHealth(): int
             + getPlayerWeaponName(): String
+        }
+
+        class StoryManager <<controller>> {
+            - story: Story
+            + new(): StoryManager
+            + getStoryTitle(): String
+            + getStoryChoices(): String[]
         }
     }
 
@@ -44,11 +60,16 @@ package es.hugoalvarezajenjo.textadventure {
             class ChoiceScreen <<UI>> {
                 + setHp(hp: int)
                 + setWeaponName(weaponName: WeaponName)
+                + setStoryTitle(title: String)
+                + setStoryChoices(choice: String[])
             }
             class ChoiceScreenController <<UIController>> {
                 - choicescreen: ChoiceScreen
-                + updateHp(hp: int)
-                + updateWeaponName(weaponName: WeaponName)
+                - updateHp(hp: int)
+                - updateWeaponName(weaponName: WeaponName)
+                - updateStoryTitle(title: String)
+                - updateStoryChoices(choice: String[])
+                - updateStory()
             }
             class ChoiceButtonListener <<ViewListener>>
         }
@@ -76,12 +97,16 @@ StartButtonListener <- StartScreen
 MainWindowController <-- StartButtonListener
 
 ChoiceScreen <- ChoiceScreenController
-ChoiceScreenController --> PlayerManager
-
 ChoiceScreen --> ChoiceButtonListener
+ChoiceScreenController <-- ChoiceButtonListener
+ChoiceScreenController ---> PlayerManager
+ChoiceScreenController ---> StoryManager
+
 
 PlayerManager --> Player
 
-Player o--> Weapon
+Player *--> Weapon
+
+StoryManager *--> Story
 
 @enduml
