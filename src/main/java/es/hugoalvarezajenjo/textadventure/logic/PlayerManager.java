@@ -10,11 +10,11 @@ public class PlayerManager {
         this.player = new Player(10, new Knife());
     }
 
-    public String getWeaponName() {
+    public String getPlayerWeaponName() {
         return this.player.getWeapon().getName();
     }
 
-    public int getHp() {
+    public int getPlayerHp() {
         return this.player.getHp();
     }
 }

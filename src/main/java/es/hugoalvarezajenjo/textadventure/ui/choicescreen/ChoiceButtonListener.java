@@ -6,9 +6,6 @@ import java.awt.event.ActionListener;
 public class ChoiceButtonListener implements ActionListener {
     private ChoiceScreenController controller;
 
-    public ChoiceButtonListener() {
-    }
-
     public void setController(final ChoiceScreenController controller) {
         this.controller = controller;
     }

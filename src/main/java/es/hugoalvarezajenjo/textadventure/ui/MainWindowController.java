@@ -10,7 +10,7 @@ import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartScreen;
 
 public class MainWindowController {
     private final MainWindow mainWindow;
-    
+
     public MainWindowController(final MainWindow mainWindow) {
         this.mainWindow = mainWindow;
     }

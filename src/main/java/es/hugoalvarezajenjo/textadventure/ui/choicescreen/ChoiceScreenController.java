@@ -20,11 +20,11 @@ public class ChoiceScreenController {
     }
 
     private void updateHp() {
-        this.choiceScreen.setHp(this.playerManager.getHp());
+        this.choiceScreen.setHp(this.playerManager.getPlayerHp());
     }
 
     private void updateWeaponName() {
-        this.choiceScreen.setWeaponName(this.playerManager.getWeaponName());
+        this.choiceScreen.setWeaponName(this.playerManager.getPlayerWeaponName());
     }
 
     private void updateStoryTitle() {

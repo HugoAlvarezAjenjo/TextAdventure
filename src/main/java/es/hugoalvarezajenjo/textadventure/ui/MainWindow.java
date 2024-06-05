@@ -1,8 +1,5 @@
 package es.hugoalvarezajenjo.textadventure.ui;
 
-import es.hugoalvarezajenjo.textadventure.ui.choicescreen.ChoiceScreen;
-import es.hugoalvarezajenjo.textadventure.ui.startscreen.StartScreen;
-
 import javax.swing.*;
 import java.awt.*;
 
