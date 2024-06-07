@@ -30,6 +30,8 @@ package es.hugoalvarezajenjo.textadventure {
             - choice4: String
             + new(title: String, choice1: String, choice2: String, choice3: String, choice4: String): Story
             + makeChoice(choice: String): Story
+            + getHpVariation(): int
+            + getWeaponVariation(): Weapon
             # {abstract} choice1(): Story
             # {abstract} choice2(): Story
             # {abstract} choice3(): Story
@@ -46,6 +48,7 @@ package es.hugoalvarezajenjo.textadventure {
 
         class AttackGuardStory{
             + new(): TownStory
+            + getHpVariation(): int
             # choice1(): Story
             # choice2(): Story
             # choice3(): Story
@@ -75,6 +78,8 @@ package es.hugoalvarezajenjo.textadventure {
             + new(): PlayerManager
             + getPlayerHp(): int
             + getPlayerWeaponName(): String
+            + variateHp(hp: int)
+            + setPlayerWeapon(weapon: Weapon)
         }
 
         class StoryManager <<controller>> {
@@ -125,20 +130,20 @@ package es.hugoalvarezajenjo.textadventure {
             class ChoiceScreen <<UI>> {
                 + new(choiceButtonListener: ChoiceButtonListener): ChoiceScreen
                 + setHp(hp: int)
-                + setWeaponName(weaponName: WeaponName)
+                + setWeaponName(weapon: String)
                 + setStoryTitle(title: String)
                 + setStoryChoices(choice: String[])
             }
             class ChoiceScreenController <<UIController>> {
-                - choicescreen: ChoiceScreen
+                - choiceScreen: ChoiceScreen
                 - playerManager: PlayerManager
                 - storyManager: StoryManager
                 + new(choiceScreen: ChoiceScreen, playerManager: PlayerManager, storyManager: StoryManager): ChoiceScreenController
                 - updateHp(hp: int)
-                - updateWeaponName(weaponName: WeaponName)
+                - updateWeaponName(weaponName: String)
                 - updateStoryTitle(title: String)
                 - updateStoryChoices(choice: String[])
-                - updateStory()
+                - update()
                 + notifyChoice(choice: String)
             }
             class ChoiceButtonListener <<ViewListener>> {
@@ -187,6 +192,7 @@ PlayerManager *-->"1" Player
 Player *-->"1" Weapon
 
 StoryManager *-->"1" Story
+StoryManager ->"1" PlayerManager
 
 Story --> Story: Next Story
 
