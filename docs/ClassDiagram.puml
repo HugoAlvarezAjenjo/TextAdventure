@@ -22,13 +22,50 @@ package es.hugoalvarezajenjo.textadventure {
             + new(): LongSword
         }
 
-        class Story {
+        abstract Story {
             - title: String
             - choice1: String
             - choice2: String
             - choice3: String
             - choice4: String
             + new(title: String, choice1: String, choice2: String, choice3: String, choice4: String): Story
+            + makeChoice(choice: String): Story
+            # {abstract} choice1(): Story
+            # {abstract} choice2(): Story
+            # {abstract} choice3(): Story
+            # {abstract} choice4(): Story
+        }
+
+        class TownStory {
+            + new(): TownStory
+            # choice1(): Story
+            # choice2(): Story
+            # choice3(): Story
+            # choice4(): Story
+        }
+
+        class AttackGuardStory{
+            + new(): TownStory
+            # choice1(): Story
+            # choice2(): Story
+            # choice3(): Story
+            # choice4(): Story
+        }
+
+        class CrossTheRoadStory{
+            + new(): TownStory
+            # choice1(): Story
+            # choice2(): Story
+            # choice3(): Story
+            # choice4(): Story
+        }
+
+        class TalkGuardStory{
+            + new(): TownStory
+            # choice1(): Story
+            # choice2(): Story
+            # choice3(): Story
+            # choice4(): Story
         }
     }
 
@@ -121,6 +158,11 @@ package es.hugoalvarezajenjo.textadventure {
 WindowScreen <|-- StartScreen
 WindowScreen <|-- ChoiceScreen
 
+Story <|-- TownStory
+Story <|-- CrossTheRoadStory
+Story <|-- TalkGuardStory
+Story <|-- AttackGuardStory
+
 Weapon <|-- Knife
 Weapon <|-- LongSword
 
@@ -130,20 +172,22 @@ MainWindowController -> MainWindow
 
 MainWindow *--> WindowScreen
 
-StartButtonListener <- StartScreen
+StartButtonListener <-* StartScreen
 MainWindowController <-- StartButtonListener
 
-ChoiceScreen <- ChoiceScreenController
-ChoiceScreen --> ChoiceButtonListener
+ChoiceScreen "1"<-* ChoiceScreenController
+ChoiceScreen *--> ChoiceButtonListener
 ChoiceScreenController <-- ChoiceButtonListener
-ChoiceScreenController ---> PlayerManager
-ChoiceScreenController ---> StoryManager
+ChoiceScreenController *--->"1" PlayerManager
+ChoiceScreenController *--->"1" StoryManager
 
 
-PlayerManager --> Player
+PlayerManager *-->"1" Player
 
-Player *--> Weapon
+Player *-->"1" Weapon
 
-StoryManager *--> Story
+StoryManager *-->"1" Story
+
+Story --> Story: Next Story
 
 @enduml
