@@ -47,7 +47,7 @@ package es.hugoalvarezajenjo.textadventure {
         }
 
         class AttackGuardStory{
-            + new(): TownStory
+            + new(): AttackGuardStory
             + getHpVariation(): int
             # choice1(): Story
             # choice2(): Story
@@ -56,7 +56,7 @@ package es.hugoalvarezajenjo.textadventure {
         }
 
         class CrossTheRoadStory{
-            + new(): TownStory
+            + new(): CrossTheRoadStory
             # choice1(): Story
             # choice2(): Story
             # choice3(): Story
@@ -64,7 +64,7 @@ package es.hugoalvarezajenjo.textadventure {
         }
 
         class TalkGuardStory{
-            + new(): TownStory
+            + new(): TalkGuardStory
             # choice1(): Story
             # choice2(): Story
             # choice3(): Story
