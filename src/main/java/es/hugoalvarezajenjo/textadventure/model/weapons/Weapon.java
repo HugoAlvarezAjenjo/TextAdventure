@@ -1,6 +1,6 @@
-package es.hugoalvarezajenjo.textadventure.model;
+package es.hugoalvarezajenjo.textadventure.model.weapons;
 
-public class Weapon {
+public abstract class Weapon {
     private final String name;
     private final int damage;
 

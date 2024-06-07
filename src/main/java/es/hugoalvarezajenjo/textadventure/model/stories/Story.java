@@ -1,6 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.Weapon;
+import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public abstract class Story {
     private final String storyName;

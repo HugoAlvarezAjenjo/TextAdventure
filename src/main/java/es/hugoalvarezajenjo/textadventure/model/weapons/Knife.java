@@ -1,4 +1,4 @@
-package es.hugoalvarezajenjo.textadventure.model;
+package es.hugoalvarezajenjo.textadventure.model.weapons;
 
 public class Knife extends Weapon {
 

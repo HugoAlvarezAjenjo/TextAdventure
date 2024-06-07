@@ -1,6 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.logic;
 
-import es.hugoalvarezajenjo.textadventure.model.Weapon;
+import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 import es.hugoalvarezajenjo.textadventure.model.stories.Story;
 import es.hugoalvarezajenjo.textadventure.model.stories.TownStory;
 

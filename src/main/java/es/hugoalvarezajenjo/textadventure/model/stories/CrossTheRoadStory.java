@@ -15,12 +15,12 @@ public class CrossTheRoadStory extends Story {
 
     @Override
     protected Story choice1() {
-        return null;
+        return new RiverStory();
     }
 
     @Override
     protected Story choice2() {
-        return null;
+        return new ForestStory();
     }
 
     @Override
