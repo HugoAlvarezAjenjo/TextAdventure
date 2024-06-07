@@ -1,5 +1,7 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
+import es.hugoalvarezajenjo.textadventure.model.Weapon;
+
 public abstract class Story {
     private final String storyName;
     private final String storyOption1;
@@ -40,6 +42,14 @@ public abstract class Story {
             nextStory = this.choice4();
         }
         return nextStory;
+    }
+
+    public int getHpVariation() {
+        return 0;
+    }
+
+    public Weapon getWeaponVariation() {
+        return null;
     }
 
     protected abstract Story choice1();

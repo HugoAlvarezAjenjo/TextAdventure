@@ -35,15 +35,17 @@ public class ChoiceScreenController {
         this.choiceScreen.setStoryChoices(this.storyManager.getStoryChoices());
     }
 
-    private void updateStory() {
+    private void updateView() {
         this.updateStoryTitle();
         this.updateStoryChoices();
+        this.updateHp();
+        this.updateWeaponName();
     }
 
     public void notifyChoice(final String choice) {
         final boolean needsUpdate = this.storyManager.makeChoice(choice);
         if (needsUpdate) {
-            this.updateStory();
+            this.updateView();
         }
     }
 

@@ -2,6 +2,7 @@ package es.hugoalvarezajenjo.textadventure.logic;
 
 import es.hugoalvarezajenjo.textadventure.model.Knife;
 import es.hugoalvarezajenjo.textadventure.model.Player;
+import es.hugoalvarezajenjo.textadventure.model.Weapon;
 
 public class PlayerManager {
     private final Player player;
@@ -16,5 +17,13 @@ public class PlayerManager {
 
     public int getPlayerHp() {
         return this.player.getHp();
+    }
+
+    public void variatePlayerHp(final int hp) {
+        this.player.setHp(this.player.getHp() + hp);
+    }
+
+    public void setPlayerWeapon(final Weapon weapon) {
+        this.player.setWeapon(weapon);
     }
 }

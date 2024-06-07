@@ -33,4 +33,9 @@ public class AttackGuardStory extends Story{
     protected Story choice4() {
         return null;
     }
+
+    @Override
+    public int getHpVariation() {
+        return -3;
+    }
 }
