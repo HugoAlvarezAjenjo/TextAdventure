@@ -1,9 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.monsters;
 
-public class Monster {
-    private String name;
+public abstract class Monster {
+    private final String name;
     private int hp;
-    private int attack;
+    private final int attack;
 
     public Monster(final String name, final int hp, final int attack) {
         this.name = name;
@@ -13,10 +13,6 @@ public class Monster {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(final String name) {
-        this.name = name;
     }
 
     public int getHp() {
@@ -29,9 +25,5 @@ public class Monster {
 
     public int getAttack() {
         return attack;
-    }
-
-    public void setAttack(final int attack) {
-        this.attack = attack;
     }
 }

@@ -1,5 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.logic;
 
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Knife;
 import es.hugoalvarezajenjo.textadventure.model.Player;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
@@ -13,6 +14,10 @@ public class PlayerManager {
 
     public String getPlayerWeaponName() {
         return this.player.getWeapon().getName();
+    }
+
+    public IPlayer getPlayer() {
+        return this.player;
     }
 
     public int getPlayerHp() {

@@ -1,21 +1,24 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+
 public class TalkGuardStory extends Story {
 
-    public TalkGuardStory() {
+    public TalkGuardStory(IPlayer player) {
         super(
                 "Guard: Hello stranger. I have never seen your face.\n" +
                         "I'm sorry but we cannot let a stranger enter to our town",
                 ">",
                 "",
                 "",
-                ""
+                "",
+                player
         );
     }
 
     @Override
     protected Story choice1() {
-        return new TownStory();
+        return new TownStory(this.getPlayer());
     }
 
     @Override

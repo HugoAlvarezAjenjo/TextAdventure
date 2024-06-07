@@ -2,7 +2,7 @@ package es.hugoalvarezajenjo.textadventure.model;
 
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
-public class Player {
+public class Player implements IPlayer{
     private int hp;
     private Weapon weapon;
 

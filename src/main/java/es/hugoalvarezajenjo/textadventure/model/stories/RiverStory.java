@@ -1,7 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+
 public class RiverStory extends Story {
-    public RiverStory() {
+    public RiverStory(IPlayer player) {
         super(
                 """
                         There is a river.
@@ -10,7 +12,8 @@ public class RiverStory extends Story {
         "Go south",
         "",
         "",
-        ""
+        "",
+                player
         );
     }
 
@@ -21,7 +24,7 @@ public class RiverStory extends Story {
 
     @Override
     protected Story choice1() {
-        return new CrossTheRoadStory();
+        return new CrossTheRoadStory(this.getPlayer());
     }
 
     @Override

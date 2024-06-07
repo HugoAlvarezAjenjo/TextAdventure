@@ -9,7 +9,7 @@ public class StoryManager {
     private Story story;
 
     public StoryManager(final PlayerManager playerManager) {
-        this.story = new TownStory();
+        this.story = new TownStory(playerManager.getPlayer());
         this.playerManager = playerManager;
     }
 

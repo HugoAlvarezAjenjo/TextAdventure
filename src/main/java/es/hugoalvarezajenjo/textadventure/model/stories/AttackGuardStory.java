@@ -1,7 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-public class AttackGuardStory extends Story{
-    public AttackGuardStory () {
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+
+public class AttackGuardStory extends Story {
+    public AttackGuardStory(IPlayer player) {
         super(
                 """
                         Guard: Hey don't be stupid!
@@ -10,13 +12,14 @@ public class AttackGuardStory extends Story{
                 ">",
                 "",
                 "",
-                ""
+                "",
+                player
         );
     }
 
     @Override
     protected Story choice1() {
-        return new TownStory();
+        return new TownStory(this.getPlayer());
     }
 
     @Override

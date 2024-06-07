@@ -1,7 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+
 public class TownStory extends Story {
-    public TownStory() {
+    public TownStory(IPlayer player) {
         super(
                 """
                         You are at the gate of the town.
@@ -10,24 +12,25 @@ public class TownStory extends Story {
                 "Talk to the guard",
                 "Attack the guard",
                 "Leave",
-                ""
+                "",
+                player
         );
 
     }
 
     @Override
     protected Story choice1() {
-        return new TalkGuardStory();
+        return new TalkGuardStory(this.getPlayer());
     }
 
     @Override
     protected Story choice2() {
-        return new AttackGuardStory();
+        return new AttackGuardStory(this.getPlayer());
     }
 
     @Override
     protected Story choice3() {
-        return new CrossTheRoadStory();
+        return new CrossTheRoadStory(this.getPlayer());
     }
 
     @Override

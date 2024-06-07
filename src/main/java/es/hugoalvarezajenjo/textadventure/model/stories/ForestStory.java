@@ -1,11 +1,12 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
 import es.hugoalvarezajenjo.textadventure.model.weapons.LongSword;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public class ForestStory extends Story{
 
-    public ForestStory() {
+    public ForestStory(IPlayer player) {
         super(
                 """
                         You walked into a forest and found a Long Sword
@@ -13,7 +14,8 @@ public class ForestStory extends Story{
                 "Go west",
                 "",
                 "",
-                ""
+                "",
+                player
         );
     }
 
@@ -24,7 +26,7 @@ public class ForestStory extends Story{
 
     @Override
     protected Story choice1() {
-        return new CrossTheRoadStory();
+        return new CrossTheRoadStory(this.getPlayer());
     }
 
     @Override

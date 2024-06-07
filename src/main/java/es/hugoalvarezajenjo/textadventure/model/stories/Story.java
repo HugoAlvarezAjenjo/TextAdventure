@@ -1,15 +1,19 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
+import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.weapons.IWeapon;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public abstract class Story {
+    private final IPlayer player;
     private final String storyName;
     private final String storyOption1;
     private final String storyOption2;
     private final String storyOption3;
     private final String storyOption4;
 
-    public Story(final String storyName, final String storyOption1, final String storyOption2, final String storyOption3, final String storyOption4) {
+    public Story(final String storyName, final String storyOption1, final String storyOption2, final String storyOption3, final String storyOption4, final IPlayer player) {
+        this.player = player;
         this.storyName = storyName;
         this.storyOption1 = storyOption1;
         this.storyOption2 = storyOption2;
@@ -24,6 +28,14 @@ public abstract class Story {
         choices[2] = storyOption3;
         choices[3] = storyOption4;
         return choices;
+    }
+
+    protected IPlayer getPlayer() {
+        return player;
+    }
+
+    protected IWeapon getPlayerWeapon() {
+        return this.getPlayer().getWeapon();
     }
 
     public String getName() {
@@ -53,7 +65,10 @@ public abstract class Story {
     }
 
     protected abstract Story choice1();
+
     protected abstract Story choice2();
+
     protected abstract Story choice3();
+
     protected abstract Story choice4();
 }
