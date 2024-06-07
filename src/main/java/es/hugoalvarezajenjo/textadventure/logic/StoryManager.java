@@ -1,12 +1,13 @@
 package es.hugoalvarezajenjo.textadventure.logic;
 
-import es.hugoalvarezajenjo.textadventure.model.Story;
+import es.hugoalvarezajenjo.textadventure.model.stories.Story;
+import es.hugoalvarezajenjo.textadventure.model.stories.TownStory;
 
 public class StoryManager {
     private Story story;
 
     public StoryManager() {
-        this.story = new Story("StoryTitle :)", "op1", "op2", "op3", "op4");
+        this.story = new TownStory();
     }
 
     public String getStoryTitle() {
