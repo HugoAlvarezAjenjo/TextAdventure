@@ -19,6 +19,10 @@ public class Player implements IPlayer{
 		this.hp = Math.min(hp, 10);
 	}
 
+	public void variateHp(final int hp) {
+		this.setHp(this.getHp() + hp);
+	}
+
 	public Weapon getWeapon() {
 		return weapon;
 	}
@@ -26,6 +30,4 @@ public class Player implements IPlayer{
 	public void setWeapon(final Weapon weapon) {
 		this.weapon = weapon;
 	}
-
-
 }

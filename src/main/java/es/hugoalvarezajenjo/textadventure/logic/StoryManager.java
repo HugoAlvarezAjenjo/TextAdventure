@@ -1,16 +1,18 @@
 package es.hugoalvarezajenjo.textadventure.logic;
 
+import es.hugoalvarezajenjo.textadventure.model.Player;
+import es.hugoalvarezajenjo.textadventure.model.weapons.Knife;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 import es.hugoalvarezajenjo.textadventure.model.stories.Story;
 import es.hugoalvarezajenjo.textadventure.model.stories.TownStory;
 
 public class StoryManager {
-    private final PlayerManager playerManager;
+    private final Player player;
     private Story story;
 
-    public StoryManager(final PlayerManager playerManager) {
-        this.story = new TownStory(playerManager.getPlayer());
-        this.playerManager = playerManager;
+    public StoryManager() {
+        this.player = new Player(10, new Knife());
+        this.story = new TownStory(this.getPlayer());
     }
 
     public String getStoryTitle() {
@@ -21,6 +23,17 @@ public class StoryManager {
         return this.story.getChoices();
     }
 
+    private Player getPlayer() {
+        return this.player;
+    }
+
+    public int getPlayerHp() {
+        return this.getPlayer().getHp();
+    }
+     public String getPlayerWeaponName() {
+        return this.getPlayer().getWeapon().getName();
+     }
+
     public boolean makeChoice(final String choice) {
         if (choice.isEmpty()) {
             return false;
@@ -28,13 +41,17 @@ public class StoryManager {
         final Story nextStory = this.story.makeChoice(choice);
         if (nextStory != null) {
             this.story = nextStory;
-            this.playerManager.variatePlayerHp(nextStory.getHpVariation());
+            this.getPlayer().variateHp(nextStory.getHpVariation());
             final Weapon weaponToChange = nextStory.getWeaponVariation();
             if (weaponToChange != null) {
-                this.playerManager.setPlayerWeapon(weaponToChange);
+                this.getPlayer().setWeapon(weaponToChange);
             }
             return true;
         }
         return false;
+    }
+
+    public boolean isGameOver() {
+        return this.getPlayer().getHp() <= 0;
     }
 }

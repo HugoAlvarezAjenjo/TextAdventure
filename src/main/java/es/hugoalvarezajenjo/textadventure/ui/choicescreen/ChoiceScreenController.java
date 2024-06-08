@@ -1,18 +1,15 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import es.hugoalvarezajenjo.textadventure.logic.PlayerManager;
 import es.hugoalvarezajenjo.textadventure.logic.StoryManager;
 import es.hugoalvarezajenjo.textadventure.ui.MainWindowController;
 
 public class ChoiceScreenController {
     private final ChoiceScreen choiceScreen;
-    private final PlayerManager playerManager;
     private final StoryManager storyManager;
     private final MainWindowController controller;
 
-    public ChoiceScreenController(final ChoiceScreen choiceScreen, final PlayerManager playerManager, final StoryManager storyManager, final MainWindowController controller) {
+    public ChoiceScreenController(final ChoiceScreen choiceScreen, final StoryManager storyManager, final MainWindowController controller) {
         this.choiceScreen = choiceScreen;
-        this.playerManager = playerManager;
         this.storyManager = storyManager;
         this.controller = controller;
 
@@ -23,11 +20,11 @@ public class ChoiceScreenController {
     }
 
     private void updateHp() {
-        this.choiceScreen.setHp(this.playerManager.getPlayerHp());
+        this.choiceScreen.setHp(this.storyManager.getPlayerHp());
     }
 
     private void updateWeaponName() {
-        this.choiceScreen.setWeaponName(this.playerManager.getPlayerWeaponName());
+        this.choiceScreen.setWeaponName(this.storyManager.getPlayerWeaponName());
     }
 
     private void updateStoryTitle() {
@@ -47,7 +44,7 @@ public class ChoiceScreenController {
 
     public void notifyChoice(final String choice) {
         final boolean needsUpdate = this.storyManager.makeChoice(choice);
-        if (this.playerManager.isGameOver()) {
+        if (this.storyManager.isGameOver()) {
             this.controller.showEndScreen();
         } else {
             if (needsUpdate) {
@@ -55,5 +52,4 @@ public class ChoiceScreenController {
             }
         }
     }
-
 }
