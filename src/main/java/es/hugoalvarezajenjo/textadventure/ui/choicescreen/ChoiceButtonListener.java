@@ -12,7 +12,6 @@ public class ChoiceButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(final ActionEvent e) {
-        System.out.println(e.getActionCommand());
         this.controller.notifyChoice(e.getActionCommand());
     }
 }
