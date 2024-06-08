@@ -4,10 +4,10 @@ import es.hugoalvarezajenjo.textadventure.model.IPlayer;
 import es.hugoalvarezajenjo.textadventure.model.monsters.Goblin;
 import es.hugoalvarezajenjo.textadventure.model.monsters.Monster;
 
-public class MonsterHistory extends Story {
+public class MonsterStory extends Story {
     private final Monster monster = new Goblin();
 
-    public MonsterHistory(IPlayer player) {
+    public MonsterStory(IPlayer player) {
         super(
                 "You encountered a Monster!",
                 "Fight",
@@ -16,6 +16,11 @@ public class MonsterHistory extends Story {
                 "",
                 player
         );
+    }
+
+    @Override
+    public int getHpVariation() {
+        return -this.monster.getAttack();
     }
 
     @Override

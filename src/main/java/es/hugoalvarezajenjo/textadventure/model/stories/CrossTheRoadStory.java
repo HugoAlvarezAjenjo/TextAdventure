@@ -33,6 +33,6 @@ public class CrossTheRoadStory extends Story {
 
     @Override
     protected Story choice4() {
-        return new MonsterHistory(this.getPlayer());
+        return new MonsterStory(this.getPlayer());
     }
 }
