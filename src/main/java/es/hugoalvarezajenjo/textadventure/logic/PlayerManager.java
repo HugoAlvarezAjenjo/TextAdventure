@@ -31,4 +31,8 @@ public class PlayerManager {
     public void setPlayerWeapon(final Weapon weapon) {
         this.player.setWeapon(weapon);
     }
+
+    public boolean isGameOver() {
+        return this.player.getHp() <= 0;
+    }
 }
