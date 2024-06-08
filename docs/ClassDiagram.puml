@@ -1,74 +1,127 @@
 @startuml TextAdventure Class Diagram
 package es.hugoalvarezajenjo.textadventure {
     package model {
+        interface IPlayer {
+            + getWeapon(): Weapon
+        }
         class Player {
             - health: int
             - weapon: Weapon
             + new(health: int, weapon: Weapon): Player
+            + getHp(): int
+            + setHp(hp: int)
+            + getWeapon(): Weapon
+            + setWeapon(weapon: Weapon)
         }
 
-        abstract Weapon{
-            - name: String
-            - damage: int
-            + new(name: String, damage: int): Weapon
-            + getName(): String
-            + getDamage(): int
+        package weapons {
+            abstract Weapon{
+                - name: String
+                - damage: int
+                + new(name: String, damage: int): Weapon
+                + getName(): String
+                + getDamage(): int
+            }
+
+            class Knife {
+                + new(): Knife
+            }
+            class LongSword {
+                + new(): LongSword
+            }
         }
 
-        class Knife {
-            + new(): Knife
-        }
-        class LongSword {
-            + new(): LongSword
+        package histories {
+            abstract Story {
+                - title: String
+                - choice1: String
+                - choice2: String
+                - choice3: String
+                - choice4: String
+                + new(title: String, choice1: String, choice2: String, choice3: String, choice4: String): Story
+                + makeChoice(choice: String): Story
+                + getHpVariation(): int
+                + getWeaponVariation(): Weapon
+                # {abstract} choice1(): Story
+                # {abstract} choice2(): Story
+                # {abstract} choice3(): Story
+                # {abstract} choice4(): Story
+            }
+
+            class TownStory {
+                + new(): TownStory
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
+
+            class AttackGuardStory{
+                + new(): AttackGuardStory
+                + getHpVariation(): int
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
+
+            class CrossTheRoadStory{
+                + new(): CrossTheRoadStory
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
+
+            class RiverStory{
+                + new(): RiverStory
+                + getHpVariation(): int
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
+
+            class ForestHistory{
+                + new(): ForestHistory
+                + getWeaponVariation(): Weapon
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
+
+            class MonsterStory {
+                - monster: Monster
+                + new(): MonsterHistory
+                + getHpVariation(): int
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
+
+            class TalkGuardStory{
+                + new(): TalkGuardStory
+                # choice1(): Story
+                # choice2(): Story
+                # choice3(): Story
+                # choice4(): Story
+            }
         }
 
-        abstract Story {
-            - title: String
-            - choice1: String
-            - choice2: String
-            - choice3: String
-            - choice4: String
-            + new(title: String, choice1: String, choice2: String, choice3: String, choice4: String): Story
-            + makeChoice(choice: String): Story
-            + getHpVariation(): int
-            + getWeaponVariation(): Weapon
-            # {abstract} choice1(): Story
-            # {abstract} choice2(): Story
-            # {abstract} choice3(): Story
-            # {abstract} choice4(): Story
-        }
-
-        class TownStory {
-            + new(): TownStory
-            # choice1(): Story
-            # choice2(): Story
-            # choice3(): Story
-            # choice4(): Story
-        }
-
-        class AttackGuardStory{
-            + new(): AttackGuardStory
-            + getHpVariation(): int
-            # choice1(): Story
-            # choice2(): Story
-            # choice3(): Story
-            # choice4(): Story
-        }
-
-        class CrossTheRoadStory{
-            + new(): CrossTheRoadStory
-            # choice1(): Story
-            # choice2(): Story
-            # choice3(): Story
-            # choice4(): Story
-        }
-
-        class TalkGuardStory{
-            + new(): TalkGuardStory
-            # choice1(): Story
-            # choice2(): Story
-            # choice3(): Story
-            # choice4(): Story
+        package monsters {
+            abstract Monster {
+                - name: String
+                - hp: int
+                - attack: int
+                + new(name: String, hp: int, attack: int)
+                + getName(): String
+                + getHp(): int
+                + setHp(hp: int)
+                + getAttack(): int
+            }
+            class Goblin
         }
     }
 
@@ -76,15 +129,18 @@ package es.hugoalvarezajenjo.textadventure {
         class PlayerManager <<controller>>{
             - player: Player
             + new(): PlayerManager
+            + getPlayer(): IPlayer
             + getPlayerHp(): int
             + getPlayerWeaponName(): String
-            + variateHp(hp: int)
+            + variatePlayerHp(hp: int)
             + setPlayerWeapon(weapon: Weapon)
+            + isGameOver(): boolean
         }
 
         class StoryManager <<controller>> {
+            - playerManager: PlayerManager
             - story: Story
-            + new(): StoryManager
+            + new(playerManager: PlayerManager): StoryManager
             + getStoryTitle(): String
             + getStoryChoices(): String[]
             + makeChoice(choice: String): boolean
@@ -100,6 +156,7 @@ package es.hugoalvarezajenjo.textadventure {
             + new(mainWindow: MainWindow): MainWindowController
             + showStartScreen()
             + showChoiceScreen()
+            + showEndScreen()
         }
         abstract WindowScreen <<UI>> {
             + new(): WindowScreen
@@ -119,6 +176,7 @@ package es.hugoalvarezajenjo.textadventure {
             class StartScreen <<UI>> {
                 +new(onStartButtonClick: ActionListener): StartScreen
             }
+
             class StartButtonListener <<ViewListener>> {
                 - mainWindowController: MainWindowController
                 + new(mainWindowController: MainWindowController): StartButtonListener
@@ -134,6 +192,7 @@ package es.hugoalvarezajenjo.textadventure {
                 + setStoryTitle(title: String)
                 + setStoryChoices(choice: String[])
             }
+
             class ChoiceScreenController <<UIController>> {
                 - choiceScreen: ChoiceScreen
                 - playerManager: PlayerManager
@@ -146,10 +205,18 @@ package es.hugoalvarezajenjo.textadventure {
                 - update()
                 + notifyChoice(choice: String)
             }
+
             class ChoiceButtonListener <<ViewListener>> {
                 - controller: ChoiceScreenController
                 + setController(controller: ChoiceScreenController)
                 + actionPerformed(event: ActionEvent)
+            }
+        }
+
+        package endscreen {
+            class EndScreen {
+                + new(): EndScreen
+                - youDied(): JLabel
             }
         }
 
@@ -160,40 +227,52 @@ package es.hugoalvarezajenjo.textadventure {
     }
 }
 
+IPlayer <|.. Player
+
 WindowScreen <|-- StartScreen
 WindowScreen <|-- ChoiceScreen
+WindowScreen <|-- EndScreen
+
+Monster <|-- Goblin
 
 Story <|-- TownStory
 Story <|-- CrossTheRoadStory
 Story <|-- TalkGuardStory
 Story <|-- AttackGuardStory
+Story <|-- RiverStory
+Story <|-- ForestHistory
+Story <|-- MonsterStory
 
 Weapon <|-- Knife
 Weapon <|-- LongSword
 
 Main --> MainWindowController
 
-MainWindowController -> MainWindow
+MainWindowController *-->"1" MainWindow: Controls
+MainWindowController <-- ChoiceScreenController: Navigate
+MainWindowController <-- StartButtonListener: Navigate
 
-MainWindow *--> WindowScreen
+MainWindow *-->"1" WindowScreen: Shows
 
 StartButtonListener <-* StartScreen
-MainWindowController <-- StartButtonListener
 
-ChoiceScreen "1"<-* ChoiceScreenController
+ChoiceScreen "1"<-* ChoiceScreenController: Controls
 ChoiceScreen *--> ChoiceButtonListener
-ChoiceScreenController <-- ChoiceButtonListener
-ChoiceScreenController *--->"1" PlayerManager
-ChoiceScreenController *--->"1" StoryManager
+ChoiceScreenController <-- ChoiceButtonListener: Executes
+ChoiceScreenController *--->"1" PlayerManager: Uses
+ChoiceScreenController *--->"1" StoryManager: Uses
 
 
 PlayerManager *-->"1" Player
 
-Player *-->"1" Weapon
+Player *-->"1" Weapon: Has
 
 StoryManager *-->"1" Story
 StoryManager ->"1" PlayerManager
 
 Story --> Story: Next Story
+Story *->"1" IPlayer
+
+MonsterStory *-->"1" Monster
 
 @enduml
