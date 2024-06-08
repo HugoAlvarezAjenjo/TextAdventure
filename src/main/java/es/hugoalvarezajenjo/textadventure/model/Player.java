@@ -16,7 +16,7 @@ public class Player implements IPlayer{
 	}
 
 	public void setHp(final int hp) {
-		this.hp = hp;
+		this.hp = Math.min(hp, 10);
 	}
 
 	public Weapon getWeapon() {
