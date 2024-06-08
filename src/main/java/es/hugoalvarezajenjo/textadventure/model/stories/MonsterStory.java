@@ -5,7 +5,8 @@ import es.hugoalvarezajenjo.textadventure.model.monsters.Goblin;
 import es.hugoalvarezajenjo.textadventure.model.monsters.Monster;
 
 public class MonsterStory extends Story {
-    private final Monster monster = new Goblin();
+    private final Monster monster;
+    private boolean isFirstEncountere;
 
     public MonsterStory(IPlayer player) {
         super(
@@ -16,17 +17,28 @@ public class MonsterStory extends Story {
                 "",
                 player
         );
+        this.monster = new Goblin();
+        this.isFirstEncountere = true;
     }
 
     @Override
     public int getHpVariation() {
-        return -this.monster.getAttack();
+        if (this.isFirstEncountere || this.monster.getHp() <= 0) {
+            return 0;
+        } else {
+            return -this.monster.getAttack();
+        }
     }
 
     @Override
     protected Story choice1() {
         this.monster.setHp(this.monster.getHp() - this.getPlayerWeapon().getDamage());
-        return null;
+        this.isFirstEncountere = false;
+        if (this.monster.getHp() <= 0) {
+            return new MonsterDefeatedStory(this.getPlayer());
+        } else {
+            return this;
+        }
     }
 
     @Override
