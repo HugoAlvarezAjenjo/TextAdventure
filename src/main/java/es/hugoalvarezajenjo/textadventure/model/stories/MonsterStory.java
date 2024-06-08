@@ -1,7 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
 import es.hugoalvarezajenjo.textadventure.model.IPlayer;
-import es.hugoalvarezajenjo.textadventure.model.monsters.Goblin;
 import es.hugoalvarezajenjo.textadventure.model.monsters.Monster;
 
 public class MonsterStory extends Story {
@@ -17,7 +16,7 @@ public class MonsterStory extends Story {
                 "",
                 player
         );
-        this.monster = new Goblin();
+        this.monster = new Monster("Goblin", 10, 6);
         this.isFirstEncounter = true;
     }
 

@@ -1,6 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.model.monsters;
 
-public abstract class Monster {
+public class Monster {
     private final String name;
     private int hp;
     private final int attack;
