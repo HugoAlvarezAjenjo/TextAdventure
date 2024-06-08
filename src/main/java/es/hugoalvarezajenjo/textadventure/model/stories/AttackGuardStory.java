@@ -1,9 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class AttackGuardStory extends Story {
-    public AttackGuardStory(IPlayer player) {
+    public AttackGuardStory(Player player) {
         super(
                 """
                         Guard: Hey don't be stupid!

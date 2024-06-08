@@ -1,10 +1,10 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class TalkGuardStory extends Story {
 
-    public TalkGuardStory(IPlayer player) {
+    public TalkGuardStory(Player player) {
         super(
                 "Guard: Hello stranger. I have never seen your face.\n" +
                         "I'm sorry but we cannot let a stranger enter to our town",

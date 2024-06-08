@@ -1,18 +1,18 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class RiverStory extends Story {
-    public RiverStory(IPlayer player) {
+    public RiverStory(Player player) {
         super(
                 """
                         There is a river.
                         You drink the water and rest at this riverside
                         (Your HP has recovered by 2)""",
-        "Go south",
-        "",
-        "",
-        "",
+                "Go south",
+                "",
+                "",
+                "",
                 player
         );
     }

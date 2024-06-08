@@ -1,12 +1,12 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 import es.hugoalvarezajenjo.textadventure.model.weapons.LongSword;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
-public class ForestStory extends Story{
+public class ForestStory extends Story {
 
-    public ForestStory(IPlayer player) {
+    public ForestStory(Player player) {
         super(
                 """
                         You walked into a forest and found a Long Sword

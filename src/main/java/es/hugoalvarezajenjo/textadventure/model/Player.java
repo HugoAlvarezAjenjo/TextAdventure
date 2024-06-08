@@ -2,7 +2,7 @@ package es.hugoalvarezajenjo.textadventure.model;
 
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
-public class Player implements IPlayer{
+public class Player {
     private int hp;
     private Weapon weapon;
 
@@ -11,23 +11,23 @@ public class Player implements IPlayer{
         this.weapon = weapon;
     }
 
-	public int getHp() {
-		return hp;
-	}
+    public int getHp() {
+        return hp;
+    }
 
-	public void setHp(final int hp) {
-		this.hp = Math.min(hp, 10);
-	}
+    public void setHp(final int hp) {
+        this.hp = Math.min(hp, 10);
+    }
 
-	public void variateHp(final int hp) {
-		this.setHp(this.getHp() + hp);
-	}
+    public void variateHp(final int hp) {
+        this.setHp(this.getHp() + hp);
+    }
 
-	public Weapon getWeapon() {
-		return weapon;
-	}
+    public Weapon getWeapon() {
+        return weapon;
+    }
 
-	public void setWeapon(final Weapon weapon) {
-		this.weapon = weapon;
-	}
+    public void setWeapon(final Weapon weapon) {
+        this.weapon = weapon;
+    }
 }

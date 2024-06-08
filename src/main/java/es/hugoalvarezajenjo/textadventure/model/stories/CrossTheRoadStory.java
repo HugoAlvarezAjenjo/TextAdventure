@@ -1,9 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class CrossTheRoadStory extends Story {
-    public CrossTheRoadStory(IPlayer player) {
+    public CrossTheRoadStory(Player player) {
         super(
                 """
                         You are at the crossroad.

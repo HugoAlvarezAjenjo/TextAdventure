@@ -1,9 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class MonsterDefeatedStory extends Story {
-    public MonsterDefeatedStory(final IPlayer player) {
+    public MonsterDefeatedStory(final Player player) {
         super(
                 """
                         You defeated the monster!

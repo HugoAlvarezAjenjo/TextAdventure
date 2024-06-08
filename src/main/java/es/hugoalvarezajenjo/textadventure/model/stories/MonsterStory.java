@@ -1,13 +1,13 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 import es.hugoalvarezajenjo.textadventure.model.monsters.Monster;
 
 public class MonsterStory extends Story {
     private final Monster monster;
     private boolean isFirstEncounter;
 
-    public MonsterStory(IPlayer player) {
+    public MonsterStory(Player player) {
         super(
                 "You encountered a Monster!",
                 "Fight",

@@ -1,9 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
-import es.hugoalvarezajenjo.textadventure.model.IPlayer;
+import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class TownStory extends Story {
-    public TownStory(IPlayer player) {
+    public TownStory(Player player) {
         super(
                 """
                         You are at the gate of the town.
