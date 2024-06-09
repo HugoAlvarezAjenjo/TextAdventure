@@ -28,10 +28,10 @@ public abstract class Story {
 
     public String[] getChoices() {
         final String[] choices = new String[4];
-        choices[0] = storyOption1;
-        choices[1] = storyOption2;
-        choices[2] = storyOption3;
-        choices[3] = storyOption4;
+        choices[0] = this.storyOption1;
+        choices[1] = this.storyOption2;
+        choices[2] = this.storyOption3;
+        choices[3] = this.storyOption4;
         return choices;
     }
 
@@ -62,7 +62,7 @@ public abstract class Story {
     }
 
     protected Player getPlayer() {
-        return player;
+        return this.player;
     }
 
     protected Weapon getPlayerWeapon() {
