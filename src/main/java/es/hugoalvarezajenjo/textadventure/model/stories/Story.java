@@ -1,7 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
 import es.hugoalvarezajenjo.textadventure.model.Player;
-import es.hugoalvarezajenjo.textadventure.model.weapons.IWeapon;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public abstract class Story {
@@ -66,7 +65,7 @@ public abstract class Story {
         return player;
     }
 
-    protected IWeapon getPlayerWeapon() {
+    protected Weapon getPlayerWeapon() {
         return this.getPlayer().getWeapon();
     }
 

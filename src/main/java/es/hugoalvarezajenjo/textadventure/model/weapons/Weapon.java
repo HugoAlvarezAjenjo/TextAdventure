@@ -1,6 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.model.weapons;
 
-public abstract class Weapon implements IWeapon {
+public abstract class Weapon {
     private final String name;
     private final int damage;
 
