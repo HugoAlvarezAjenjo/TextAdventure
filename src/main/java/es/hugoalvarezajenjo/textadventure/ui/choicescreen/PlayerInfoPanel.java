@@ -1,7 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.JPanel;
 
 public class PlayerInfoPanel extends JPanel {
     private final PlayerInfoLabel hpLabel;

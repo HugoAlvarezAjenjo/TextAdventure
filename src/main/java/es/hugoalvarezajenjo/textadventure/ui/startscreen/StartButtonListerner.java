@@ -1,9 +1,9 @@
 package es.hugoalvarezajenjo.textadventure.ui.startscreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.MainWindowController;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import es.hugoalvarezajenjo.textadventure.ui.MainWindowController;
 
 public class StartButtonListerner implements ActionListener {
     final MainWindowController mainWindowController;
@@ -13,7 +13,7 @@ public class StartButtonListerner implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
         mainWindowController.showChoiceScreen();
     }
 }

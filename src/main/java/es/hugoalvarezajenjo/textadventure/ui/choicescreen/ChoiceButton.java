@@ -1,9 +1,10 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
+import java.awt.Color;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+
+import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
 
 public class ChoiceButton extends JButton {
     public ChoiceButton(final String text) {

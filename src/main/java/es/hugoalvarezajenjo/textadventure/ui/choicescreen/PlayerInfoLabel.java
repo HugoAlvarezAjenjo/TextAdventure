@@ -1,9 +1,10 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
+import java.awt.Color;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+
+import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
 
 public class PlayerInfoLabel extends JLabel {
     public PlayerInfoLabel() {

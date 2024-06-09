@@ -1,8 +1,8 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.WindowScreen;
-
 import java.awt.event.ActionListener;
+
+import es.hugoalvarezajenjo.textadventure.ui.WindowScreen;
 
 public class ChoiceScreen extends WindowScreen {
     private final ChoiceButtonPanel choiceButtonPanel;
@@ -18,7 +18,7 @@ public class ChoiceScreen extends WindowScreen {
         this.add(this.playerInfoPanel);
     }
 
-    public void setHp(int hp) {
+    public void setHp(final int hp) {
         this.playerInfoPanel.setHp(hp);
     }
 

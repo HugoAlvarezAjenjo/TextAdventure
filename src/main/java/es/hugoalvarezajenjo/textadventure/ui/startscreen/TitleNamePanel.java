@@ -1,9 +1,11 @@
 package es.hugoalvarezajenjo.textadventure.ui.startscreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
+import java.awt.Color;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
 
 public class TitleNamePanel extends JPanel {
 

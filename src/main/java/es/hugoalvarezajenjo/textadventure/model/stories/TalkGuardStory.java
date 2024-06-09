@@ -4,16 +4,15 @@ import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class TalkGuardStory extends Story {
 
-    public TalkGuardStory(Player player) {
+    public TalkGuardStory(final Player player) {
         super(
-                "Guard: Hello stranger. I have never seen your face.\n" +
-                        "I'm sorry but we cannot let a stranger enter to our town",
+                "Guard: Hello stranger. I have never seen your face.\n"
+                        + "I'm sorry but we cannot let a stranger enter to our town",
                 ">",
                 "",
                 "",
                 "",
-                player
-        );
+                player);
     }
 
     @Override

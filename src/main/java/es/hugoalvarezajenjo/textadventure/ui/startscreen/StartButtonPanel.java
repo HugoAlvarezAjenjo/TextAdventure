@@ -1,10 +1,12 @@
 package es.hugoalvarezajenjo.textadventure.ui.startscreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
 
 public class StartButtonPanel extends JPanel {
     public StartButtonPanel(final ActionListener onStartButtonClick) {

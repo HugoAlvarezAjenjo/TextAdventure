@@ -1,8 +1,10 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+
+import javax.swing.JPanel;
 
 public class ChoiceButtonPanel extends JPanel {
     private final ChoiceButton choice1;

@@ -3,7 +3,7 @@ package es.hugoalvarezajenjo.textadventure.model.stories;
 import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class CrossTheRoadStory extends Story {
-    public CrossTheRoadStory(Player player) {
+    public CrossTheRoadStory(final Player player) {
         super(
                 """
                         You are at the crossroad.
@@ -12,8 +12,7 @@ public class CrossTheRoadStory extends Story {
                 "Go east",
                 "Go south",
                 "Go west",
-                player
-        );
+                player);
     }
 
     @Override

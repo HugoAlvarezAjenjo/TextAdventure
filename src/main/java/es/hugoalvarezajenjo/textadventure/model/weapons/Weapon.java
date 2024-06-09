@@ -9,12 +9,11 @@ public abstract class Weapon implements IWeapon {
         this.damage = damage;
     }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getDamage() {
-		return damage;
-	}
-
+    public int getDamage() {
+        return damage;
+    }
 }

@@ -19,6 +19,17 @@ public class ChoiceScreenController {
         this.updateStoryChoices();
     }
 
+    public void notifyChoice(final String choice) {
+        final boolean needsUpdate = this.storyManager.makeChoice(choice);
+        if (this.storyManager.isGameOver()) {
+            this.controller.showEndScreen();
+        } else {
+            if (needsUpdate) {
+                this.updateView();
+            }
+        }
+    }
+
     private void updateHp() {
         this.choiceScreen.setHp(this.storyManager.getPlayerHp());
     }
@@ -40,16 +51,5 @@ public class ChoiceScreenController {
         this.updateStoryChoices();
         this.updateHp();
         this.updateWeaponName();
-    }
-
-    public void notifyChoice(final String choice) {
-        final boolean needsUpdate = this.storyManager.makeChoice(choice);
-        if (this.storyManager.isGameOver()) {
-            this.controller.showEndScreen();
-        } else {
-            if (needsUpdate) {
-                this.updateView();
-            }
-        }
     }
 }

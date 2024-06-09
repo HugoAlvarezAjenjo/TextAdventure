@@ -6,7 +6,7 @@ import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public class ForestStory extends Story {
 
-    public ForestStory(Player player) {
+    public ForestStory(final Player player) {
         super(
                 """
                         You walked into a forest and found a Long Sword
@@ -15,8 +15,7 @@ public class ForestStory extends Story {
                 "",
                 "",
                 "",
-                player
-        );
+                player);
     }
 
     @Override

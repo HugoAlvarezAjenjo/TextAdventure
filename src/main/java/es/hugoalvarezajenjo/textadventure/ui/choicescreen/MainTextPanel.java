@@ -1,9 +1,11 @@
 package es.hugoalvarezajenjo.textadventure.ui.choicescreen;
 
-import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
+import java.awt.Color;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
 
 public class MainTextPanel extends JPanel {
     private final JTextArea textArea;
@@ -14,6 +16,10 @@ public class MainTextPanel extends JPanel {
 
         this.textArea = this.newTextArea();
         this.add(this.textArea);
+    }
+
+    public void setText(final String storyTitle) {
+        this.textArea.setText(storyTitle);
     }
 
     private JTextArea newTextArea() {
@@ -27,9 +33,5 @@ public class MainTextPanel extends JPanel {
         textArea.setWrapStyleWord(true);
         textArea.setEditable(false);
         return textArea;
-    }
-
-    public void setText(final String storyTitle) {
-        this.textArea.setText(storyTitle);
     }
 }

@@ -7,15 +7,8 @@ public class MonsterStory extends Story {
     private final Monster monster;
     private boolean isFirstEncounter;
 
-    public MonsterStory(Player player) {
-        super(
-                "You encountered a Monster!",
-                "Fight",
-                "Run",
-                "",
-                "",
-                player
-        );
+    public MonsterStory(final Player player) {
+        super("You encountered a Monster!", "Fight", "Run", "", "", player);
         this.monster = new Monster("Goblin", 10, 6);
         this.isFirstEncounter = true;
     }

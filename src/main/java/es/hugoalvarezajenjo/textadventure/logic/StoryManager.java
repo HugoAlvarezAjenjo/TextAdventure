@@ -1,10 +1,10 @@
 package es.hugoalvarezajenjo.textadventure.logic;
 
 import es.hugoalvarezajenjo.textadventure.model.Player;
-import es.hugoalvarezajenjo.textadventure.model.weapons.Knife;
-import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 import es.hugoalvarezajenjo.textadventure.model.stories.Story;
 import es.hugoalvarezajenjo.textadventure.model.stories.TownStory;
+import es.hugoalvarezajenjo.textadventure.model.weapons.Knife;
+import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public class StoryManager {
     private final Player player;
@@ -23,16 +23,13 @@ public class StoryManager {
         return this.story.getChoices();
     }
 
-    private Player getPlayer() {
-        return this.player;
-    }
-
     public int getPlayerHp() {
         return this.getPlayer().getHp();
     }
-     public String getPlayerWeaponName() {
+
+    public String getPlayerWeaponName() {
         return this.getPlayer().getWeapon().getName();
-     }
+    }
 
     public boolean makeChoice(final String choice) {
         if (choice.isEmpty()) {
@@ -53,5 +50,9 @@ public class StoryManager {
 
     public boolean isGameOver() {
         return this.getPlayer().getHp() <= 0;
+    }
+
+    private Player getPlayer() {
+        return this.player;
     }
 }

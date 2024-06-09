@@ -12,7 +12,13 @@ public abstract class Story {
     private final String storyOption3;
     private final String storyOption4;
 
-    public Story(final String storyName, final String storyOption1, final String storyOption2, final String storyOption3, final String storyOption4, final Player player) {
+    public Story(
+            final String storyName,
+            final String storyOption1,
+            final String storyOption2,
+            final String storyOption3,
+            final String storyOption4,
+            final Player player) {
         this.player = player;
         this.storyName = storyName;
         this.storyOption1 = storyOption1;
@@ -28,14 +34,6 @@ public abstract class Story {
         choices[2] = storyOption3;
         choices[3] = storyOption4;
         return choices;
-    }
-
-    protected Player getPlayer() {
-        return player;
-    }
-
-    protected IWeapon getPlayerWeapon() {
-        return this.getPlayer().getWeapon();
     }
 
     public String getName() {
@@ -62,6 +60,14 @@ public abstract class Story {
 
     public Weapon getWeaponVariation() {
         return null;
+    }
+
+    protected Player getPlayer() {
+        return player;
+    }
+
+    protected IWeapon getPlayerWeapon() {
+        return this.getPlayer().getWeapon();
     }
 
     protected abstract Story choice1();

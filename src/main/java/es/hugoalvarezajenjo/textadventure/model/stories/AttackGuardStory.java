@@ -3,7 +3,7 @@ package es.hugoalvarezajenjo.textadventure.model.stories;
 import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class AttackGuardStory extends Story {
-    public AttackGuardStory(Player player) {
+    public AttackGuardStory(final Player player) {
         super(
                 """
                         Guard: Hey don't be stupid!
@@ -13,8 +13,12 @@ public class AttackGuardStory extends Story {
                 "",
                 "",
                 "",
-                player
-        );
+                player);
+    }
+
+    @Override
+    public int getHpVariation() {
+        return -3;
     }
 
     @Override
@@ -35,10 +39,5 @@ public class AttackGuardStory extends Story {
     @Override
     protected Story choice4() {
         return null;
-    }
-
-    @Override
-    public int getHpVariation() {
-        return -3;
     }
 }

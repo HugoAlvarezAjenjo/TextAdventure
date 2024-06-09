@@ -12,8 +12,7 @@ public class MonsterDefeatedStory extends Story {
                 "",
                 "",
                 "",
-                player
-        );
+                player);
     }
 
     @Override

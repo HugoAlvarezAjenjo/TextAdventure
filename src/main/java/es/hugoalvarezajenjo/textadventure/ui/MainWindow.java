@@ -1,9 +1,10 @@
 package es.hugoalvarezajenjo.textadventure.ui;
 
-import es.hugoalvarezajenjo.textadventure.ui.theme.Dimensions;
+import java.awt.Color;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+
+import es.hugoalvarezajenjo.textadventure.ui.theme.Dimensions;
 
 public class MainWindow extends JFrame {
     public MainWindow() {

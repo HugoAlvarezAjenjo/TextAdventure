@@ -3,7 +3,7 @@ package es.hugoalvarezajenjo.textadventure.model.stories;
 import es.hugoalvarezajenjo.textadventure.model.Player;
 
 public class RiverStory extends Story {
-    public RiverStory(Player player) {
+    public RiverStory(final Player player) {
         super(
                 """
                         There is a river.
@@ -13,8 +13,7 @@ public class RiverStory extends Story {
                 "",
                 "",
                 "",
-                player
-        );
+                player);
     }
 
     @Override

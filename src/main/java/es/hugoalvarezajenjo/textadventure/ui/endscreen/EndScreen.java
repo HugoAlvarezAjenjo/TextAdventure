@@ -1,10 +1,12 @@
 package es.hugoalvarezajenjo.textadventure.ui.endscreen;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JLabel;
+
 import es.hugoalvarezajenjo.textadventure.ui.WindowScreen;
 import es.hugoalvarezajenjo.textadventure.ui.theme.Fonts;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class EndScreen extends WindowScreen {
     public EndScreen() {

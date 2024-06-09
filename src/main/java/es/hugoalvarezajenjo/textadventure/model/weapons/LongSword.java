@@ -6,4 +6,3 @@ public class LongSword extends Weapon {
         super("Long Sword", 10);
     }
 }
-
