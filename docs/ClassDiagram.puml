@@ -1,9 +1,6 @@
 @startuml TextAdventure Class Diagram
 package es.hugoalvarezajenjo.textadventure {
     package model {
-        interface IPlayer {
-            + getWeapon(): Weapon
-        }
         class Player {
             - health: int
             - weapon: Weapon
@@ -121,26 +118,14 @@ package es.hugoalvarezajenjo.textadventure {
                 + setHp(hp: int)
                 + getAttack(): int
             }
-            class Goblin
         }
     }
 
     package logic {
-        class PlayerManager <<controller>>{
-            - player: Player
-            + new(): PlayerManager
-            + getPlayer(): IPlayer
-            + getPlayerHp(): int
-            + getPlayerWeaponName(): String
-            + variatePlayerHp(hp: int)
-            + setPlayerWeapon(weapon: Weapon)
-            + isGameOver(): boolean
-        }
-
         class StoryManager <<controller>> {
-            - playerManager: PlayerManager
+            - player: Player
             - story: Story
-            + new(playerManager: PlayerManager): StoryManager
+            + new(): StoryManager
             + getStoryTitle(): String
             + getStoryChoices(): String[]
             + makeChoice(choice: String): boolean
@@ -195,9 +180,8 @@ package es.hugoalvarezajenjo.textadventure {
 
             class ChoiceScreenController <<UIController>> {
                 - choiceScreen: ChoiceScreen
-                - playerManager: PlayerManager
                 - storyManager: StoryManager
-                + new(choiceScreen: ChoiceScreen, playerManager: PlayerManager, storyManager: StoryManager): ChoiceScreenController
+                + new(choiceScreen: ChoiceScreen, storyManager: StoryManager): ChoiceScreenController
                 - updateHp(hp: int)
                 - updateWeaponName(weaponName: String)
                 - updateStoryTitle(title: String)
@@ -227,13 +211,9 @@ package es.hugoalvarezajenjo.textadventure {
     }
 }
 
-IPlayer <|.. Player
-
 WindowScreen <|-- StartScreen
 WindowScreen <|-- ChoiceScreen
 WindowScreen <|-- EndScreen
-
-Monster <|-- Goblin
 
 Story <|-- TownStory
 Story <|-- CrossTheRoadStory
@@ -259,19 +239,15 @@ StartButtonListener <-* StartScreen
 ChoiceScreen "1"<-* ChoiceScreenController: Controls
 ChoiceScreen *--> ChoiceButtonListener
 ChoiceScreenController <-- ChoiceButtonListener: Executes
-ChoiceScreenController *--->"1" PlayerManager: Uses
 ChoiceScreenController *--->"1" StoryManager: Uses
-
-
-PlayerManager *-->"1" Player
 
 Player *-->"1" Weapon: Has
 
 StoryManager *-->"1" Story
-StoryManager ->"1" PlayerManager
+StoryManager *-->"1" Player
 
 Story --> Story: Next Story
-Story *->"1" IPlayer
+Story *-> Player
 
 MonsterStory *-->"1" Monster
 
