@@ -41,13 +41,13 @@ public abstract class Story {
 
     public Story makeChoice(final String choice) {
         Story nextStory = null;
-        if (choice.equals(storyOption1)) {
+        if (choice.equals(this.storyOption1)) {
             nextStory = this.choice1();
-        } else if (choice.equals(storyOption2)) {
+        } else if (choice.equals(this.storyOption2)) {
             nextStory = this.choice2();
-        } else if (choice.equals(storyOption3)) {
+        } else if (choice.equals(this.storyOption3)) {
             nextStory = this.choice3();
-        } else if (choice.equals(storyOption4)) {
+        } else if (choice.equals(this.storyOption4)) {
             nextStory = this.choice4();
         }
         return nextStory;
