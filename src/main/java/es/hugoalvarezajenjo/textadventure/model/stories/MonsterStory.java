@@ -1,7 +1,7 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
 import es.hugoalvarezajenjo.textadventure.model.Player;
-import es.hugoalvarezajenjo.textadventure.model.monsters.Monster;
+import es.hugoalvarezajenjo.textadventure.model.Monster;
 
 public class MonsterStory extends Story {
     private final Monster monster;

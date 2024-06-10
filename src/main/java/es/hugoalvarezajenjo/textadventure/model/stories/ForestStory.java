@@ -1,7 +1,7 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
 import es.hugoalvarezajenjo.textadventure.model.Player;
-import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
+import es.hugoalvarezajenjo.textadventure.model.Weapon;
 
 public class ForestStory extends Story {
 

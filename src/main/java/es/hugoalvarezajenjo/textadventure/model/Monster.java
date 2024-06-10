@@ -1,4 +1,4 @@
-package es.hugoalvarezajenjo.textadventure.model.monsters;
+package es.hugoalvarezajenjo.textadventure.model;
 
 public class Monster {
     private final String name;

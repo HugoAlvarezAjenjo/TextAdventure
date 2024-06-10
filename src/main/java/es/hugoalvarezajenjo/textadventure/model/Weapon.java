@@ -1,4 +1,4 @@
-package es.hugoalvarezajenjo.textadventure.model.weapons;
+package es.hugoalvarezajenjo.textadventure.model;
 
 public class Weapon {
     private final String name;

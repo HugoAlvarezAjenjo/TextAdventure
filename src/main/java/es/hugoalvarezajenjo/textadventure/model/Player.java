@@ -1,7 +1,5 @@
 package es.hugoalvarezajenjo.textadventure.model;
 
-import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
-
 public class Player {
     private int hp;
     private Weapon weapon;

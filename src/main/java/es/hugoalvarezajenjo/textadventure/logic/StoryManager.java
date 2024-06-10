@@ -3,7 +3,7 @@ package es.hugoalvarezajenjo.textadventure.logic;
 import es.hugoalvarezajenjo.textadventure.model.Player;
 import es.hugoalvarezajenjo.textadventure.model.stories.Story;
 import es.hugoalvarezajenjo.textadventure.model.stories.TownStory;
-import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
+import es.hugoalvarezajenjo.textadventure.model.Weapon;
 
 public class StoryManager {
     private final Player player;
