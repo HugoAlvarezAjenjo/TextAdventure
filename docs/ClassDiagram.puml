@@ -11,21 +11,12 @@ package es.hugoalvarezajenjo.textadventure {
             + setWeapon(weapon: Weapon)
         }
 
-        package weapons {
-            abstract Weapon{
-                - name: String
-                - damage: int
-                + new(name: String, damage: int): Weapon
-                + getName(): String
-                + getDamage(): int
-            }
-
-            class Knife {
-                + new(): Knife
-            }
-            class LongSword {
-                + new(): LongSword
-            }
+        class Weapon{
+            - name: String
+            - damage: int
+            + new(name: String, damage: int): Weapon
+            + getName(): String
+            + getDamage(): int
         }
 
         package histories {
@@ -107,17 +98,15 @@ package es.hugoalvarezajenjo.textadventure {
             }
         }
 
-        package monsters {
-            abstract Monster {
-                - name: String
-                - hp: int
-                - attack: int
-                + new(name: String, hp: int, attack: int)
-                + getName(): String
-                + getHp(): int
-                + setHp(hp: int)
-                + getAttack(): int
-            }
+        class Monster {
+            - name: String
+            - hp: int
+            - attack: int
+            + new(name: String, hp: int, attack: int)
+            + getName(): String
+            + getHp(): int
+            + setHp(hp: int)
+            + getAttack(): int
         }
     }
 
@@ -222,9 +211,6 @@ Story <|-- AttackGuardStory
 Story <|-- RiverStory
 Story <|-- ForestHistory
 Story <|-- MonsterStory
-
-Weapon <|-- Knife
-Weapon <|-- LongSword
 
 Main --> MainWindowController
 
