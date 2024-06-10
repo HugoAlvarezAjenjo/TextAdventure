@@ -1,7 +1,6 @@
 package es.hugoalvarezajenjo.textadventure.model.stories;
 
 import es.hugoalvarezajenjo.textadventure.model.Player;
-import es.hugoalvarezajenjo.textadventure.model.weapons.LongSword;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public class ForestStory extends Story {
@@ -20,7 +19,7 @@ public class ForestStory extends Story {
 
     @Override
     public Weapon getWeaponVariation() {
-        return new LongSword();
+        return new Weapon("Long Sword", 10);
     }
 
     @Override

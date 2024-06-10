@@ -3,7 +3,6 @@ package es.hugoalvarezajenjo.textadventure.logic;
 import es.hugoalvarezajenjo.textadventure.model.Player;
 import es.hugoalvarezajenjo.textadventure.model.stories.Story;
 import es.hugoalvarezajenjo.textadventure.model.stories.TownStory;
-import es.hugoalvarezajenjo.textadventure.model.weapons.Knife;
 import es.hugoalvarezajenjo.textadventure.model.weapons.Weapon;
 
 public class StoryManager {
@@ -11,7 +10,7 @@ public class StoryManager {
     private Story story;
 
     public StoryManager() {
-        this.player = new Player(10, new Knife());
+        this.player = new Player(10, new Weapon("Knife", 4));
         this.story = new TownStory(this.getPlayer());
     }
 
